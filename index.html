@@ -5,29 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Calculadora</h1>
-    <form id="calculator-form">
-        <label for="num1">Ingrese el primer número:</label>
-        <input type="number" id="num1" required>
-        <br>
-        <label for="num2">Ingrese el segundo número:</label>
-        <input type="number" id="num2" required>
-        <br>
-        <label for="operation">Seleccione la operación:</label>
-        <select id="operation">
-            <option value="multiplicar">Multiplicar</option>
-            <option value="dividir">Dividir</option>
-        </select>
-        <br>
-        <button type="button" onclick="realizarOperacion()">Calcular</button>
-    </form>
+    <div class="title">
+        <h1>Calculadora</h1>
+    </div>
+    <div class="calculator-wrapper">
+        <form id="calculator-form" class="form">
+            <label for="num1">Ingrese el primer número:</label>
+            <input type="number" id="num1" required>
 
-    <div id="resultado"></div><br>
-    <div id="resultados"></div><br>
+            <label for="num2">Ingrese el segundo número:</label>
+            <input type="number" id="num2" required>
 
+            <label for="operation">Seleccione la operación:</label>
+            <select id="operation">
+                <option value="multiplicar">Multiplicar</option>
+                <option value="dividir">Dividir</option>
+            </select>
+
+            <button type="button" onclick="realizarOperacion()">Calcular</button>
+        </form>
+    </div>
+
+    <div class="results-wrapper">
+        <h2>Resultados</h2>
+        <div id="resultado"></div><br>
+        <div id="resultados"></div><br>
+    </div>
     <script src="script.js"></script>
 </body>
 

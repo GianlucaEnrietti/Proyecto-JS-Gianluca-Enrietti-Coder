@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script src="https://kit.fontawesome.com/0b24445324.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="title">
-        <h1>Calculadora</h1>
-    </div>
-    <div class="calculator-wrapper">
-        <form id="calculator-form" class="form">
-            <label for="num1">Ingrese el primer número:</label>
-            <input type="number" id="num1" required>
+    <section class="header">
+        <a href="index.html"><img src="img/logo.png" alt="samurai icon" class="logo"></a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="shop.html">Productos</a></li>
+                <li><a href="aboutUs.html">Sobre nosotros</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </section>
 
-            <label for="num2">Ingrese el segundo número:</label>
-            <input type="number" id="num2" required>
+    <section class="hero">
+        <h3>Los mejores productos</h3>
+        <h2>Un solo lugar</h2>
+        <button>Comprar</button>
+    </section>
 
-            <label for="operation">Seleccione la operación:</label>
-            <select id="operation">
-                <option value="multiplicar">Multiplicar</option>
-                <option value="dividir">Dividir</option>
-            </select>
-
-            <button type="button" onclick="realizarOperacion()">Calcular</button>
-        </form>
-    </div>
-
-    <div class="results-wrapper">
-        <h2>Resultados</h2>
-        <div id="resultado"></div><br>
-        <div id="resultados"></div><br>
-    </div>
-    <script src="script.js"></script>
+    <section class="container" id="slider-container">
+        <div class="slider" id="slider"></div>
+    </section>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
-
 </html>

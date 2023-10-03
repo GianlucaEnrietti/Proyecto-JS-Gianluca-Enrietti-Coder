@@ -1,12 +1,12 @@
-// Carousel slick
+// Carousel slick config
 
 $(document).ready(function () {
   $(".slider").slick({
     slidesToShow: 3,
     slidesToScroll: 3,
     arrows: true,
-    prevArrow: '<div class="slick-prev"><button><p><</p></button></div>',
-    nextArrow: '<div class="slick-next"><button><p>></p></button></div>'
+    prevArrow: '<div class="slick-prev"><button><p><i class="fa-solid fa-arrow-left"></i></p></button></div>',
+    nextArrow: '<div class="slick-next"><button><p><i class="fa-solid fa-arrow-right"></i></p></button></div>'
   });
 });
 
@@ -14,59 +14,40 @@ $(document).ready(function () {
 
 let playlist = [
   {
-    file: "https://cdn.jwplayer.com/manifests/ZibjXsv7.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/ZibjXsv7/poster.jpg?width=720",
-    title: "Gana Cristina Fernández De Kirchner- Gentileza C5n",
+    image: "https://i.ytimg.com/vi/Atf9TitkKpY/maxresdefault.jpg",
+    title: "Coleccion manga Dragon Ball Super",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/r6Bd1MTc.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/r6Bd1MTc/poster.jpg?width=720",
-    title:
-      "Alberto Fernández en cadena nacional por el intento de magnicidio contra Cristina Fernández de Kirchner",
+    image: "https://m.media-amazon.com/images/I/6100HfEPp-L._AC_SL1500_.jpg",
+    title: "Katana Roronoa Zoro",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/uXvpLCb7.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/uXvpLCb7/poster.jpg?width=720",
-    title:
-      "Jornada de movilización en defensa de la vicepresidenta Cristina Fernández de Kirchner",
+    image: "https://www.enfasys.net/wp-content/uploads/2022/09/HyperX.jpg",
+    title: "Kit gamer Naruto HyperX",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/583pajPE.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/583pajPE/poster.jpg?width=720",
-    title:
-      "El alegato completo de Cristina Fernández de Kirchner en la causa vialidad",
+    image: "https://cdn.vcgamers.com/news/wp-content/uploads/2022/08/aether-lumine-genshin-impact-figure.jpg",
+    title: "Figuras Aether y Stelle Genshin Impact",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/d64xth4k.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/d64xth4k/poster.jpg?width=720",
-    title: "Alberto Fernández Aseguró Que Cristina Kirchner No Comparte La Decisión De Máximo De Renunciar",
+    image: "https://files.cults3d.com/uploaders/29259792/illustration-file/09698900-6793-4307-92d5-62a0bb100488/Ghost-mask_2023.06.30_08.54.00_FinalImage_0000.png",
+    title: "Mascara Ghost of Tsushima",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/rJUGm5IS.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/rJUGm5IS/poster.jpg?width=720",
-    title: "Llegó Cristina Kirchner A Merlo",
+    image: "https://www.thewandcompany.com/wp-content/uploads/2021/02/master-ball-all-pack-shot-b-1405x1184px-1024x863.jpg",
+    title: "Replica Master Ball",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/0aLmCdMo.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/0aLmCdMo/poster.jpg?width=720",
-    title: "El Indio Solari En Apoyo A Cristina Kirchner",
+    image: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/11/Jujutsu-Kaisen-Tamagotchi.jpg",
+    title: "Tamagotchi Jujutsu Kaisen coleccion",
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/2FW2Abud.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/2FW2Abud/poster.jpg?width=720",
-    title:
-      'Cristina Fernández de Kirchner: "La política también es conducir el desorden"',
+    image: "https://i.ytimg.com/vi/HDGPbD4URE4/maxresdefault.jpg",
+    title: 'Esferas del Dragon replica"',
   },
   {
-    file: "https://cdn.jwplayer.com/manifests/QC0oJMjg.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/QC0oJMjg/poster.jpg?width=720",
-    title: "Cristina Kirchner recordó a Néstor Kirchner",
-  },
-  {
-    file: "https://cdn.jwplayer.com/manifests/bUBy6YEv.m3u8",
-    image: "https://cdn.jwplayer.com/v2/media/bUBy6YEv/poster.jpg?width=720",
-    title:
-      'Convocaron a una marcha multitudinaria frente a Tribunales contra la "proscripción" de Cristina Fernández de Kirchner',
+    image: "https://uvn-brightspot.s3.amazonaws.com/assets/vixes/r/replica-radar-dragon-ball-esferas-del-dragon-proplica-3.jpg",
+    title: "Dragon Radar - Replica",
   },
 ];
 
@@ -74,7 +55,6 @@ let playlist = [
 for (let i = 0; i < playlist.length; i++) {
   // Crear elementos
   let image = document.createElement("img");
-  let playButton = document.createElement("div");
 
   // Darle contenido a los elementos y clases
   image.src = playlist[i].image;

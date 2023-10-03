@@ -10,6 +10,13 @@
 
 /* Header */
 
+.logo{
+  transition: all .2s ease-in-out;
+  &:hover{
+    transform: scale(1.5);
+  }
+}
+
 .header{
     display: flex;
     align-items: center;
@@ -100,7 +107,16 @@
     overflow: hidden;
     margin-left: 75px;
   }
-
+  .image-container::before {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+    z-index: 4;
+  }
   .image-container img {
     display: block;
     height: 250px;

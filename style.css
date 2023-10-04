@@ -3,6 +3,7 @@
 /* Reset */
 
 *{
+    font-family: 'Play', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,14 +54,33 @@
     color: rgb(211, 211, 211);
     text-decoration: none;
     transition: 0.5 ease;
+    position: relative;
 }
 
 #navbar a:hover{
     color: rgb(7, 7, 7);
 }
-
+#navbar a:hover::after{
+  content: "";
+  width: 75%;
+  height: 2px;
+  background: rgb(7,7,7);
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
+}
 #navbar .active{
     color: rgb(7, 7, 7);
+}
+
+#navbar .active::after{
+  content: "";
+  width: 75%;
+  height: 2px;
+  background: rgb(7,7,7);
+  position: absolute;
+  bottom: -4px;
+  left: 0px;
 }
 
 /* HOME */
@@ -124,7 +144,7 @@
   align-items: center;
   width: 100%;
   padding-top: 50px;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
 }
 
 .featured-box{
@@ -179,16 +199,7 @@
     overflow: hidden;
     margin-left: 75px;
   }
-  .image-container::before {
-    content: '';
-    position: absolute;
-    bottom: 5%;
-    left: 0;
-    width: 80%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
-    z-index: 4;
-  }
+
   .image-container img {
     display: block;
     height: 250px;
@@ -222,6 +233,41 @@
     width: 15px;
   }
 
+  /* PRODUCTS */
+
+  .products{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background: rgb(255, 255, 245);
+    padding: 40px 20px;
+  }
+
+  #product-list{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .products .product-box{
+    border: 3px solid black;
+    border-radius: 12px;
+    padding: 10px 10px;
+  }
+  .product-box img{
+    border: 3px solid black;
+    border-radius: 10px;
+    width: 400px;
+    height: 200px;
+  }
+
+  .product-box p{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 18px;
+  }
   /* Footer */
 
   .footer{
@@ -242,11 +288,13 @@
     }
     & p{
       font-family: 'Play', sans-serif;
+      color: rgb(211, 211, 211);
       font-weight: 600;
       font-size: 20px;
     }
     & i{
       margin-top: 2px;
+      color: rgb(211, 211, 211);
       font-weight: 600;
       font-size: 20px;
     }

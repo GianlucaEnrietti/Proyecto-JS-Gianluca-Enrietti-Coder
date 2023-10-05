@@ -18,28 +18,28 @@ let productListExists = document.getElementById("product-list");
 
 let products = [
   {
-    id: 1,
+    id: 0,
     image: "https://i.ytimg.com/vi/Atf9TitkKpY/maxresdefault.jpg",
     title: "Coleccion manga Dragon Ball Super",
     price: 30.0,
     quantity: 0
   },
   {
-    id: 2,
+    id: 1,
     image: "https://m.media-amazon.com/images/I/6100HfEPp-L._AC_SL1500_.jpg",
     title: "Katana Roronoa Zoro",
     price: 120.0,
     quantity: 0
   },
   {
-    id: 3,
+    id: 2,
     image: "https://www.enfasys.net/wp-content/uploads/2022/09/HyperX.jpg",
     title: "Kit gamer Naruto HyperX",
     price: 40.0,
     quantity: 0
   },
   {
-    id: 4,
+    id: 3,
     image:
       "https://cdn.vcgamers.com/news/wp-content/uploads/2022/08/aether-lumine-genshin-impact-figure.jpg",
     title: "Figuras Aether y Stelle Genshin Impact",
@@ -47,7 +47,7 @@ let products = [
     quantity: 0
   },
   {
-    id: 5,
+    id: 4,
     image:
       "https://files.cults3d.com/uploaders/29259792/illustration-file/09698900-6793-4307-92d5-62a0bb100488/Ghost-mask_2023.06.30_08.54.00_FinalImage_0000.png",
     title: "Mascara Ghost of Tsushima",
@@ -55,7 +55,7 @@ let products = [
     quantity: 0
   },
   {
-    id: 6,
+    id: 5,
     image:
       "https://www.thewandcompany.com/wp-content/uploads/2021/02/master-ball-all-pack-shot-b-1405x1184px-1024x863.jpg",
     title: "Replica Master Ball",
@@ -63,8 +63,8 @@ let products = [
     quantity: 0
   },
   {
-    image:
-      "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/11/Jujutsu-Kaisen-Tamagotchi.jpg",
+    id: 6,
+    image: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/11/Jujutsu-Kaisen-Tamagotchi.jpg",
     title: "Tamagotchi Jujutsu Kaisen coleccion",
     price: 50.0,
     quantity: 0
@@ -169,15 +169,29 @@ if (productListExists) {
 let cart = [];
 
 let addToCart = document.querySelectorAll('.addBtn');
+let removeAll = document.querySelector('.buyBtn');
+
+if(removeAll){
+  removeAll.addEventListener('click', ()=>{
+    Swal.fire({
+      icon: 'success',
+      title: '¡Gracias por tu compra!',
+      confirmButtonText: '¡De nada!',
+    }).then(function() {
+      window.location = "../index.html";
+  });
+  localStorage.clear();
+})
+}
 
 for (let i = 0; i < addToCart.length; i++){
   addToCart[i].addEventListener('click', ()=>{
-    cartNumber(products[i]);
+    setCartNumber(products[i]);
     totalCost(products[i]);
   })
 }
 
-function cartNumber(product){
+function setCartNumber(product){
   let productNumber = localStorage.getItem('cartNumber');
 
   productNumber = parseInt(productNumber);
@@ -192,32 +206,32 @@ function cartNumber(product){
   setItems(product);
 }
 
-function setItems(product){
-  let cartItems = localStorage.getItem('cartProducts');
-  cartItems = JSON.parse(cartItems);
+function setItems(product) {
 
-  if(cartItems != null){
-
-    if(cartItems[product.id] == undefined){
-      cartItems = {
-        ...cartItems,
-        [product.id]: product
-      }
-    }
-    cartItems[product.id].quantity += 1;
-  }else{
-    product.quantity = 1;
-    cartItems = {
-      [product.id]: product
-    }
+  let cartItems = [];
+  let existingProduct = false;
+  if (localStorage.getItem('cartProducts') !== null){
+    cartItems = localStorage.getItem('cartProducts');
+    cartItems = JSON.parse(cartItems);
+    // Buscar si el producto ya está en el carrito
+    existingProduct = cartItems.find((item) => item.id === product.id);
   }
 
+  if (existingProduct) {
+    // Si el producto ya está en el carrito, aumentar la cantidad
+    existingProduct.quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agregarlo con cantidad 1
+    product.quantity = 1;
+    cartItems.push(product);
+  }
+  // localStorage.setItem("cartProducts", cartItems);
+  //let productNumber = localStorage.getItem('cartNumber');
   localStorage.setItem("cartProducts", JSON.stringify(cartItems));
 }
 
-function totalCost(product){
+function totalCost(product) {
   let cartTotal = localStorage.getItem('totalCost');
-  console.log(typeof cartTotal);
 
   if(cartTotal != null){
     cartTotal = parseInt(cartTotal);
@@ -228,7 +242,7 @@ function totalCost(product){
 }
 
 // Mostrar numero en el carrito fuera de la pagina de productos
-if(document.querySelectorAll('.addBtn')){
+if (document.querySelectorAll('.addBtn')) {
   let productNumber = localStorage.getItem('cartNumber');
 
   productNumber = parseInt(productNumber);

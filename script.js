@@ -177,6 +177,7 @@ if(removeAll){
       icon: 'success',
       title: '¡Gracias por tu compra!',
       confirmButtonText: '¡De nada!',
+      confirmButtonColor: '#bb0000',
     }).then(function() {
       window.location = "../index.html";
   });
